@@ -1,18 +1,55 @@
-# Ferretex Backend (Hito 3)
+# Ferretex API — Hito 3 (Backend)
 
-API REST para Ferretex (PostgreSQL + Express). Incluye autenticación JWT, catálogo de productos y flujo básico de órdenes.
+Backend en **Node.js + Express** con **PostgreSQL**, autenticación **JWT**, control de acceso por **roles** y **tests** con **Jest + Supertest**.
 
-## Requisitos
-- Node.js 18+
-- PostgreSQL 14+
-- Base de datos creada y script ejecutado
+---
 
-## Variables de entorno
-Crea un archivo `.env` en `backend/`:
+## Stack
+- Express, CORS, Morgan
+- PostgreSQL (`pg`)
+- JWT (`jsonwebtoken`)
+- Hash de passwords (`bcryptjs`)
+- Tests: `jest`, `supertest`
 
-```env
+---
+
+## Instalación
+```bash
+npm install
+
+____________________________________________________________________________________
+
+## Crea .env:
+
 PORT=3000
-DATABASE_URL=postgres://postgres:TU_PASSWORD@localhost:5432/ferretex
-# opcional para tests si usas otra BD
-# DATABASE_URL_TEST=postgres://postgres:TU_PASSWORD@localhost:5432/ferretex_test
-JWT_SECRET=ferretex_secret_demo
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASSWORD=TU_PASSWORD
+DB_NAME=ferretex
+DB_PORT=5432
+JWT_SECRET=TU_SECRET
+
+____________________________________________________________________________________
+
+## Ejecutar npm run dev
+
+____________________________________________________________________________________
+
+API: http://localhost:3000
+
+____________________________________________________________________________________
+
+Tests
+npm test
+
+____________________________________________________________________________________
+
+Usuarios de prueba (opcional)
+
+Crea por /api/auth/register:
+
+manager@ferretex.cl / manager (role: manager)
+
+staff@ferretex.cl / staff (role: staff)
+
+client@ferretex.cl / client (role: customer)
