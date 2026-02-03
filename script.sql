@@ -165,12 +165,20 @@ CREATE TABLE orders (
   shipping_cost INTEGER NOT NULL DEFAULT 0 CHECK (shipping_cost >= 0),
   total         INTEGER NOT NULL CHECK (total >= 0),
 
+  -- ✅ CLAVE: usado por auto-cancel y por createOrder (payment online)
+  expires_at    TIMESTAMPTZ NULL,
+
   created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE INDEX idx_orders_user_id_created_at ON orders(user_id, created_at DESC);
 CREATE INDEX idx_orders_status ON orders(status);
+
+-- ✅ Recomendado: acelera el job de auto-cancel (solo mira pending_payment + online)
+CREATE INDEX idx_orders_pending_online_expires
+ON orders(expires_at)
+WHERE status = 'pending_payment' AND payment_method = 'online' AND expires_at IS NOT NULL;
 
 CREATE TRIGGER trg_orders_updated
 BEFORE UPDATE ON orders
@@ -289,3 +297,4 @@ VALUES
 ON CONFLICT (product_id) DO NOTHING;
 
 COMMIT;
+-- =========================================================
