@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "private": true,
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,9 +10,9 @@
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --runInBand"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Ariel Antonio Diaz Lillo",
+  "license": "UNLICENSED",
+  "description": "Ferretex API (Backend) — Software propietario. Copyright (c) 2026 Ariel Antonio Diaz Lillo. All rights reserved.",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
