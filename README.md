@@ -301,10 +301,6 @@ Reglas de autorización (alto nivel):
 
 ---
 
-# Licencia (Propietaria)
-
-**Ferretex** es software propietario.  
-Copyright © 2026 **Ariel Antonio Diaz Lillo**.  
-Todos los derechos reservados. Ver el archivo [`LICENSE`](./LICENSE).
-
-No se otorga permiso para usar, copiar, modificar o distribuir este software sin autorización escrita del titular.
+## License
+Licensed under **CC BY-NC-ND 4.0** (Attribution required, non-commercial use only, no derivatives).  
+https://creativecommons.org/licenses/by-nc-nd/4.0/
